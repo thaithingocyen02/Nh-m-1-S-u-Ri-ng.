@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiệm này Thơm | Dâu Tây Tươi Ngon</title>
+<meta name="description" content="Tiệm này Thơm cung cấp dâu tây tươi, tuyển chọn kỹ, đóng hộp xinh và giao tận nơi. Đặt dâu online nhanh chóng, tiện lợi.">
+<meta name="keywords" content="dâu tây tươi, bán dâu tây, dâu tây giao tận nơi, mua dâu tây online, Tiệm này Thơm">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --red:#D94F70; --green:#5F8D4E; --cream:#FFF5E8; --brown:#6B4435;
+  --white:#fff; --text:#38261f; --muted:#806d64; --line:#eadbce;
+  --shadow:0 18px 50px rgba(107,68,53,.12);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Be Vietnam Pro",sans-serif;color:var(--text);background:#fffdf9;line-height:1.65}
+a{text-decoration:none;color:inherit}
+button,input,select,textarea{font:inherit}
+.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;z-index:20;background:rgba(255,253,249,.94);backdrop-filter:blur(12px);border-bottom:1px solid rgba(234,219,206,.8)}
+.nav{height:76px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.logo{display:flex;align-items:center;gap:10px;font-family:"Playfair Display",serif;font-size:23px;font-weight:800;color:var(--brown)}
+.logo-mark{width:42px;height:42px;border-radius:14px;background:var(--red);display:grid;place-items:center;font-size:24px;box-shadow:0 8px 18px rgba(217,79,112,.22)}
+nav{display:flex;align-items:center;gap:25px;font-size:14px;font-weight:600;color:#624d43}
+nav a:hover{color:var(--red)}
+.nav-cta{background:var(--red);color:white!important;padding:10px 17px;border-radius:999px}
+.menu{display:none;background:none;border:0;font-size:28px;color:var(--brown)}
+.hero{padding:70px 0 65px;background:linear-gradient(135deg,var(--cream),#fffdf9 65%);overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:55px}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #f1d6de;color:var(--red);padding:8px 13px;border-radius:999px;font-size:13px;font-weight:700;margin-bottom:20px}
+h1,h2{font-family:"Playfair Display",serif;color:var(--brown);line-height:1.12}
+h1{font-size:clamp(42px,6vw,72px);margin-bottom:18px}
+.hero p{font-size:17px;color:var(--muted);max-width:600px;margin-bottom:27px}
+.btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;justify-content:center;align-items:center;border:0;cursor:pointer;padding:13px 20px;border-radius:999px;font-weight:700;transition:.2s}
+.btn-primary{background:var(--red);color:#fff;box-shadow:0 12px 24px rgba(217,79,112,.22)}
+.btn-secondary{background:#fff;border:1px solid var(--line);color:var(--brown)}
+.btn:hover{transform:translateY(-2px)}
+.hero-art{min-height:410px;display:grid;place-items:center;position:relative}
+.strawberry-card{width:min(420px,90%);aspect-ratio:1/1;background:linear-gradient(145deg,#e96782,#c93e62);border-radius:42% 58% 55% 45% / 44% 42% 58% 56%;display:grid;place-items:center;box-shadow:var(--shadow);transform:rotate(-5deg);position:relative}
+.strawberry-card:before{content:"";position:absolute;inset:18px;border:1px solid rgba(255,255,255,.3);border-radius:inherit}
+.big-strawberry{font-size:155px;filter:drop-shadow(0 18px 10px rgba(100,30,45,.18));transform:rotate(5deg)}
+.floating{position:absolute;background:#fff;padding:12px 16px;border-radius:16px;box-shadow:var(--shadow);font-weight:700;color:var(--brown);font-size:13px}
+.f1{top:16%;right:3%}.f2{bottom:12%;left:1%}
+.section{padding:82px 0}
+.section-head{text-align:center;max-width:680px;margin:0 auto 42px}
+.eyebrow{color:var(--green);font-size:13px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:9px}
+h2{font-size:clamp(34px,4vw,48px);margin-bottom:13px}
+.section-head p{color:var(--muted)}
+.products{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;overflow:hidden;box-shadow:0 8px 30px rgba(107,68,53,.06)}
+.product-img{height:220px;background:var(--cream);display:grid;place-items:center;font-size:92px;position:relative}
+.product-img small{position:absolute;top:14px;left:14px;background:#fff;color:var(--red);padding:6px 10px;border-radius:999px;font-size:11px;font-weight:800}
+.card-body{padding:22px}
+.card h3{font-family:"Playfair Display",serif;font-size:26px;color:var(--brown);margin-bottom:5px}
+.desc{color:var(--muted);font-size:14px;min-height:48px}
+.price{font-size:22px;font-weight:800;color:var(--red);margin:15px 0}
+.card .btn{width:100%}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.feature{padding:25px;background:#fff;border-radius:22px;border:1px solid var(--line)}
+.icon{font-size:30px;margin-bottom:12px}
+.feature h3{margin-bottom:5px;color:var(--brown)}
+.feature p{color:var(--muted);font-size:14px}
+.about{background:var(--cream)}
+.about-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:55px;align-items:center}
+.about-visual{min-height:390px;border-radius:35px;background:linear-gradient(150deg,#d94f70,#f5a4b5);display:grid;place-items:center;box-shadow:var(--shadow)}
+.about-visual span{font-size:130px}
+.about h2{text-align:left}
+.about p{color:var(--muted);margin:14px 0}
+.checks{display:grid;gap:10px;margin-top:20px}
+.checks div{font-weight:600;color:#604b41}
+.order{background:#fff}
+.order-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:40px;align-items:start}
+.contact-box{background:var(--brown);color:#fff;border-radius:28px;padding:30px}
+.contact-box h3{font-family:"Playfair Display",serif;font-size:28px;margin-bottom:12px}
+.contact-box p{margin:10px 0;color:#f7eae2}
+.contact-box a{color:#fff}
+.form{background:#fff;border:1px solid var(--line);border-radius:28px;padding:28px;box-shadow:var(--shadow)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field{display:flex;flex-direction:column;gap:7px}
+.field.full{grid-column:1/-1}
+label{font-size:13px;font-weight:700;color:var(--brown)}
+input,select,textarea{border:1px solid #ddcfc5;border-radius:13px;padding:12px 13px;outline:none;background:#fffdfb}
+input:focus,select:focus,textarea:focus{border-color:var(--red);box-shadow:0 0 0 3px rgba(217,79,112,.1)}
+textarea{min-height:100px;resize:vertical}
+.gallery{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px}
+.photo{min-height:190px;border-radius:22px;display:grid;place-items:center;font-size:65px;background:linear-gradient(145deg,#fff0d9,#f7c2cb);border:1px solid var(--line)}
+.photo.tall{grid-row:span 2;min-height:394px}
+footer{background:#3d2a23;color:#fff;padding:48px 0 25px}
+.footer-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:35px}
+footer h3{font-family:"Playfair Display",serif;font-size:25px;margin-bottom:10px}
+footer p,footer li{color:#dbc9c0;font-size:14px}
+footer ul{list-style:none;display:grid;gap:7px}
+.copy{border-top:1px solid rgba(255,255,255,.15);margin-top:30px;padding-top:18px;text-align:center;color:#bfaea5;font-size:12px}
+.toast{position:fixed;right:20px;bottom:20px;background:var(--brown);color:#fff;padding:14px 18px;border-radius:14px;box-shadow:var(--shadow);transform:translateY(130px);transition:.3s;z-index:50;font-size:14px}
+.toast.show{transform:translateY(0)}
+@media(max-width:800px){
+  nav{display:none;position:absolute;top:76px;left:0;right:0;background:#fffdf9;padding:18px 5%;flex-direction:column;align-items:stretch;border-bottom:1px solid var(--line)}
+  nav.open{display:flex}.nav-cta{text-align:center}
+  .menu{display:block}.hero-grid,.about-grid,.order-grid{grid-template-columns:1fr}.hero{padding-top:45px}.hero-art{min-height:330px}
+  .products,.features{grid-template-columns:1fr}.gallery{grid-template-columns:1fr 1fr}.photo.tall{grid-row:auto;min-height:230px}
+  .footer-grid{grid-template-columns:1fr}.section{padding:62px 0}
+}
+@media(max-width:520px){
+  .form-grid{grid-template-columns:1fr}.field.full{grid-column:auto}.gallery{grid-template-columns:1fr}.photo{min-height:180px}
+  h1{font-size:43px}.big-strawberry{font-size:110px}.strawberry-card{width:310px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <a class="logo" href="#trang-chu"><span class="logo-mark">🍓</span>Tiệm này Thơm</a>
+    <button class="menu" aria-label="Mở menu" onclick="toggleMenu()">☰</button>
+    <nav id="nav">
+      <a href="#trang-chu">Trang chủ</a>
+      <a href="#san-pham">Dâu tây</a>
+      <a href="#ve-chung-toi">Về chúng tôi</a>
+      <a href="#goc-thom">Góc Thơm</a>
+      <a class="nav-cta" href="#dat-hang">Đặt dâu ngay 🍓</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<section class="hero" id="trang-chu">
+  <div class="container hero-grid">
+    <div>
+      <div class="badge">🍓 DÂU TƯƠI • ĐÓNG HỘP XINH • GIAO TẬN NƠI</div>
+      <h1>Tiệm này Thơm<br><span style="color:var(--red)">Dâu tươi trao ngọt ngào.</span></h1>
+      <p>Dâu tươi được tuyển chọn kỹ, đóng hộp xinh xắn và giao tận nơi. Một chút dâu ngọt, thêm một chút yêu thương cho ngày của bạn.</p>
+      <div class="btns">
+        <a class="btn btn-primary" href="#san-pham">Xem dâu hôm nay 🍓</a>
+        <a class="btn btn-secondary" href="#dat-hang">Đặt hàng</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="strawberry-card"><div class="big-strawberry">🍓</div></div>
+      <div class="floating f1">✨ Tươi • Ngọt • Yêu</div>
+      <div class="floating f2">🎁 Có hộp quà xinh</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="san-pham">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Dâu nhà Thơm</div>
+      <h2>Chọn một hộp dâu cho hôm nay</h2>
+      <p>Từ một hộp nhỏ ăn thử đến hộp quà dành tặng người đặc biệt.</p>
+    </div>
+    <div class="products">
+      <article class="card">
+        <div class="product-img"><small>Ăn thử</small>🍓</div>
+        <div class="card-body">
+          <h3>Thơm Nhẹ</h3><p class="desc">Hộp dâu 250g, nhỏ xinh và vừa đủ cho một người thưởng thức.</p>
+          <div class="price">79.000đ</div>
+          <button class="btn btn-primary" onclick="chooseProduct('Thơm Nhẹ – 250g')">Chọn gói này</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="product-img"><small>Bán chạy</small>🍓🍓</div>
+        <div class="card-body">
+          <h3>Thơm Đã</h3><p class="desc">Hộp dâu 500g, phù hợp ăn cùng bạn bè, gia đình hoặc thưởng thức trong ngày.</p>
+          <div class="price">149.000đ</div>
+          <button class="btn btn-primary" onclick="chooseProduct('Thơm Đã – 500g')">Chọn gói này</button>
+        </div>
+      </article>
+      <article class="card">
+        <div class="product-img"><small>Quà tặng</small>🎁🍓</div>
+        <div class="card-body">
+          <h3>Thơm Tặng</h3><p class="desc">1kg dâu tuyển đẹp kèm hộp quà, thích hợp tặng người yêu, bạn bè hoặc người thân.</p>
+          <div class="price">289.000đ</div>
+          <button class="btn btn-primary" onclick="chooseProduct('Thơm Tặng – 1kg + hộp quà')">Tặng ngay</button>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section about" id="ve-chung-toi">
+  <div class="container about-grid">
+    <div class="about-visual"><span>🍓</span></div>
+    <div>
+      <div class="eyebrow">Câu chuyện của Thơm</div>
+      <h2>Một hộp dâu nhỏ, một chút yêu thương</h2>
+      <p><strong>Tiệm này Thơm</strong> bắt đầu từ một ý tưởng đơn giản: mang những hộp dâu tươi, đẹp mắt và thơm ngon đến gần hơn với những người yêu thích trái cây tươi.</p>
+      <p>Chúng mình ưu tiên lựa chọn dâu tươi, hình thức đẹp và đóng gói cẩn thận trước khi giao đến tay khách hàng. Dù mua để thưởng thức hay dành tặng người thân, mỗi hộp dâu đều được chuẩn bị với sự chỉn chu và yêu thương.</p>
+      <div class="checks">
+        <div>✓ Dâu tươi được tuyển chọn</div>
+        <div>✓ Đóng hộp sạch đẹp, chỉn chu</div>
+        <div>✓ Đặt online nhanh, giao tận nơi</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Vì sao chọn Thơm?</div>
+      <h2>Những điều làm Tiệm này Thơm khác biệt</h2>
+    </div>
+    <div class="features">
+      <div class="feature"><div class="icon">🍓</div><h3>Dâu tuyển chọn</h3><p>Ưu tiên những quả dâu tươi, màu đẹp, vị ngọt chua hài hòa.</p></div>
+      <div class="feature"><div class="icon">🎁</div><h3>Đóng hộp xinh</h3><p>Phù hợp vừa mua ăn vừa làm món quà nhỏ dành cho người thương.</p></div>
+      <div class="feature"><div class="icon">🚚</div><h3>Đặt là có</h3><p>Đặt hàng online đơn giản, tiện lợi cho sinh viên và dân văn phòng.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="goc-thom">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Góc Thơm</div>
+      <h2>Nhìn thôi đã thấy thơm 🍓</h2>
+      <p>Bạn có thể thay các ô minh họa này bằng ảnh dâu thật của tiệm trong Canva/website.</p>
+    </div>
+    <div class="gallery">
+      <div class="photo tall">🍓</div>
+      <div class="photo">📦🍓</div>
+      <div class="photo">🎁🍓</div>
+      <div class="photo">🍓✨</div>
+      <div class="photo">💕🍓</div>
+    </div>
+  </div>
+</section>
+
+<section class="section order" id="dat-hang">
+  <div class="container order-grid">
+    <div class="contact-box">
+      <h3>Đặt dâu ngay nhé!</h3>
+      <p>Điền thông tin bên cạnh, Tiệm này Thơm sẽ liên hệ xác nhận đơn.</p>
+      <p>📱 <strong>Zalo/SĐT:</strong><br><a href="tel:0359246402">0359 246 402</a></p>
+      <p>📧 <strong>Email:</strong><br><a href="mailto:ythai420@gmail.com">ythai420@gmail.com</a></p>
+      <p>📍 <strong>Địa chỉ:</strong><br>Chung cư Legacy Thuận Giao, Thuận Giao 15, TP.HCM</p>
+    </div>
+    <form class="form" onsubmit="submitOrder(event)">
+      <h3 style="font-family:'Playfair Display',serif;font-size:30px;color:var(--brown);margin-bottom:18px">Thông tin đặt hàng</h3>
+      <div class="form-grid">
+        <div class="field"><label>Họ và tên *</label><input id="name" required placeholder="Nguyễn Văn A"></div>
+        <div class="field"><label>Số điện thoại *</label><input id="phone" required type="tel" placeholder="09xx xxx xxx"></div>
+        <div class="field"><label>Gói dâu *</label>
+          <select id="product" required>
+            <option value="">-- Chọn gói --</option>
+            <option>Thơm Nhẹ – 250g — 79.000đ</option>
+            <option>Thơm Đã – 500g — 149.000đ</option>
+            <option>Thơm Tặng – 1kg + hộp quà — 289.000đ</option>
+          </select>
+        </div>
+        <div class="field"><label>Số lượng *</label><input id="qty" required type="number" min="1" value="1"></div>
+        <div class="field full"><label>Địa chỉ nhận hàng *</label><input id="address" required placeholder="Nhập địa chỉ giao hàng"></div>
+        <div class="field full"><label>Ghi chú</label><textarea id="note" placeholder="Ví dụ: giao sau 18h, ghi lời chúc lên hộp quà..."></textarea></div>
+        <div class="field full"><button class="btn btn-primary" type="submit">Gửi yêu cầu đặt hàng 🍓</button></div>
+      </div>
+      <p style="font-size:12px;color:var(--muted);margin-top:12px">* Form demo cho bài tập. Khi kinh doanh thật, có thể kết nối Google Forms, Zalo hoặc hệ thống thanh toán.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div><h3>🍓 Tiệm này Thơm</h3><p>Dâu tươi trao ngọt ngào.</p><p style="margin-top:10px">Tươi • Ngọt • Yêu</p></div>
+      <div><h3>Liên hệ</h3><ul><li>0359 246 402</li><li>ythai420@gmail.com</li><li>Chung cư Legacy Thuận Giao, Thuận Giao 15, TP.HCM</li></ul></div>
+      <div><h3>Đi nhanh</h3><ul><li><a href="#san-pham">Dâu tây</a></li><li><a href="#ve-chung-toi">Về chúng tôi</a></li><li><a href="#goc-thom">Góc Thơm</a></li><li><a href="#dat-hang">Đặt hàng</a></li></ul></div>
+    </div>
+    <div class="copy">© 2026 Tiệm này Thơm. Website demo phục vụ bài tập Marketing.</div>
+  </div>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+function toggleMenu(){document.getElementById('nav').classList.toggle('open')}
+document.querySelectorAll('#nav a').forEach(a=>a.addEventListener('click',()=>document.getElementById('nav').classList.remove('open')));
+
+function chooseProduct(product){
+  const select=document.getElementById('product');
+  [...select.options].forEach(o=>{if(o.textContent.startsWith(product.split(' — ')[0])) select.value=o.value});
+  document.getElementById('dat-hang').scrollIntoView({behavior:'smooth'});
+  showToast('Đã chọn '+product+' 🍓');
+}
+function showToast(msg){
+  const t=document.getElementById('toast'); t.textContent=msg; t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),2800);
+}
+function submitOrder(e){
+  e.preventDefault();
+  const name=document.getElementById('name').value;
+  const product=document.getElementById('product').value;
+  const qty=document.getElementById('qty').value;
+  showToast(`Cảm ơn ${name}! Tiệm đã nhận yêu cầu ${qty} × ${product}. 🍓`);
+  e.target.reset();
+}
+</script>
+</body>
+</html>
