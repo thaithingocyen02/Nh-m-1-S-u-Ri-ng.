@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiệm này Thơm | Dưa hấu ngọt mát giao tận nơi</title>
+<meta name="description" content="Dưa hấu ruột đỏ giòn ngọt, cắt sẵn tiện lợi, giao lạnh tận nơi mùa hè này — đặt ngay!">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --red:#D8315B;
+    --red-light:#F0577A;
+    --green-deep:#1B4332;
+    --green-light:#52B788;
+    --cream:#FFF8F0;
+    --paper:#FFFDFA;
+    --seed:#22223B;
+    --text-dark:#1D1A17;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{font-family:'Be Vietnam Pro', sans-serif; background:var(--paper); color:var(--text-dark); line-height:1.6; overflow-x:hidden;}
+  h1,h2,h3,.display{font-family:'Baloo 2', sans-serif; line-height:1.08;}
+  a{text-decoration:none; color:inherit;}
+  ul{list-style:none;}
+  :focus-visible{outline:3px solid var(--red); outline-offset:2px;}
+
+  /* watermelon slice icon (pure CSS) */
+  .slice{
+    width:26px; height:26px; border-radius:50% 50% 50% 0;
+    background:var(--red); position:relative; flex-shrink:0;
+    border:3px solid var(--green-deep);
+    transform:rotate(45deg);
+  }
+  .slice::after{
+    content:""; position:absolute; top:5px; left:5px; width:4px; height:4px;
+    background:var(--seed); border-radius:50%; box-shadow:8px 3px 0 var(--seed), 4px 9px 0 var(--seed);
+  }
+
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:200;
+    background:rgba(255,248,240,0.92); backdrop-filter:blur(6px);
+    padding:14px 24px; display:flex; align-items:center; justify-content:space-between;
+    border-bottom:2px solid rgba(27,67,50,0.08);
+  }
+  .logo{font-family:'Baloo 2', sans-serif; font-weight:800; font-size:1.25rem; color:var(--green-deep); display:flex; align-items:center; gap:10px;}
+  nav ul{display:flex; gap:26px; align-items:center;}
+  nav a{color:var(--green-deep); font-weight:600; font-size:0.92rem; opacity:0.85; transition:opacity .2s, color .2s;}
+  nav a:hover{opacity:1; color:var(--red);}
+  .nav-cta{background:var(--red); color:#fff !important; padding:9px 18px; border-radius:999px; opacity:1 !important;}
+  .nav-toggle{display:none; background:none; border:none; color:var(--green-deep); font-size:1.6rem; cursor:pointer;}
+  @media (max-width:820px){
+    nav ul{position:fixed; top:58px; right:-100%; height:calc(100vh - 58px); width:72%; background:var(--cream);
+      flex-direction:column; align-items:flex-start; padding:34px 26px; gap:22px; transition:right .3s ease;
+      box-shadow:-8px 0 30px rgba(0,0,0,0.15);}
+    nav ul.open{right:0;}
+    .nav-toggle{display:block;}
+  }
+
+  .hero{
+    position:relative; min-height:100vh; display:flex; align-items:center;
+    background:radial-gradient(circle at 80% 20%, #2d6a4f 0%, var(--green-deep) 55%, #123023 100%);
+    color:var(--cream); padding:150px 24px 80px; overflow:hidden;
+  }
+  .hero-inner{max-width:640px; position:relative; z-index:3;}
+  .hero .eyebrow{
+    display:inline-flex; align-items:center; gap:8px; background:rgba(255,255,255,0.12);
+    color:var(--cream); font-weight:700; letter-spacing:.05em; text-transform:uppercase;
+    font-size:0.78rem; margin-bottom:20px; padding:7px 16px; border-radius:999px;
+  }
+  .hero h1{font-size:clamp(2.3rem,6vw,3.6rem); font-weight:800; margin-bottom:18px;}
+  .hero h1 span{color:var(--red-light);}
+  .hero p.sub{font-size:1.08rem; max-width:38ch; opacity:0.88; margin-bottom:30px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap; margin-bottom:26px;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px; background:var(--red); color:#fff;
+    font-weight:800; padding:16px 30px; border-radius:999px; font-size:1rem; border:none; cursor:pointer;
+    box-shadow:0 10px 26px rgba(216,49,91,0.4); transition:transform .18s ease, box-shadow .18s ease;
+  }
+  .btn:hover{transform:translateY(-3px) scale(1.02);}
+  .btn-outline{background:transparent; border:1.5px solid rgba(255,248,240,0.5); color:var(--cream); box-shadow:none; font-weight:600;}
+  .btn-outline:hover{background:rgba(255,248,240,0.1); transform:translateY(-3px);}
+  .trust-row{display:flex; gap:20px; flex-wrap:wrap; font-size:0.85rem; opacity:0.85;}
+  .trust-row span{display:flex; align-items:center; gap:6px;}
+
+  /* Big decorative melon disc */
+  .melon-disc{
+    position:absolute; right:-120px; top:50%; transform:translateY(-50%);
+    width:520px; height:520px; border-radius:50%;
+    background:radial-gradient(circle at 42% 42%, var(--red-light) 0%, var(--red) 46%, var(--green-light) 48%, var(--green-deep) 55%, var(--green-deep) 100%);
+    z-index:1; box-shadow:0 40px 90px rgba(0,0,0,0.35);
+  }
+  .melon-disc::before{
+    content:""; position:absolute; inset:0; border-radius:50%;
+    background-image: radial-gradient(circle, var(--seed) 3px, transparent 3.5px);
+    background-size:38px 38px; background-position:20px 20px;
+    -webkit-mask-image: radial-gradient(circle at 42% 42%, black 0%, black 44%, transparent 45%);
+    mask-image: radial-gradient(circle at 42% 42%, black 0%, black 44%, transparent 45%);
+  }
+  @media (max-width:900px){
+    .hero{padding:120px 24px 60px;}
+    .melon-disc{width:320px; height:320px; right:-100px; opacity:0.5;}
+  }
+
+  .ticker-wrap{background:var(--red); color:#fff; overflow:hidden; white-space:nowrap; padding:11px 0; font-weight:700; font-size:0.88rem;}
+  .ticker{display:inline-block; animation:scroll-left 22s linear infinite;}
+  .ticker span{margin:0 28px;}
+  @keyframes scroll-left{from{transform:translateX(0);} to{transform:translateX(-50%);}}
+
+  section{padding:90px 24px;}
+  .section-inner{max-width:1120px; margin:0 auto;}
+  .section-head{margin-bottom:50px; max-width:620px;}
+  .section-head.center{margin-left:auto; margin-right:auto; text-align:center;}
+  .eyebrow-mini{color:var(--green-light); font-weight:700; letter-spacing:.08em; text-transform:uppercase; font-size:0.78rem; margin-bottom:12px; display:block;}
+  .section-head h2{font-size:clamp(1.8rem,4vw,2.5rem); color:var(--green-deep);}
+  .section-head p{color:#5a5142; margin-top:14px; font-size:1.02rem;}
+
+  .products{background:var(--paper);}
+  .product-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .product-card{
+    background:var(--cream); border-radius:22px; padding:28px 22px 24px; position:relative; overflow:hidden;
+    border:2px solid rgba(27,67,50,0.06); transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .product-card.featured{background:var(--green-deep); color:var(--cream); transform:translateY(-14px);}
+  .product-card.featured .price, .product-card.featured h3{color:var(--cream);}
+  .product-card.featured p{color:rgba(255,248,240,0.75);}
+  .product-card:hover{transform:translateY(-6px); box-shadow:0 18px 34px rgba(27,67,50,0.14);}
+  .product-card.featured:hover{transform:translateY(-18px);}
+  .card-icon{margin-bottom:16px;}
+  .best-tag{position:absolute; top:14px; right:-30px; background:var(--red); color:#fff; font-size:0.7rem; font-weight:800; padding:4px 34px; transform:rotate(35deg); letter-spacing:.05em;}
+  .product-card h3{font-size:1.15rem; color:var(--green-deep); margin-bottom:8px;}
+  .product-card p{font-size:0.88rem; color:#5a5142; margin-bottom:18px; min-height:56px;}
+  .product-card .price{font-family:'Baloo 2',sans-serif; font-weight:700; font-size:1.5rem; color:var(--red); margin-bottom:18px;}
+  .product-card .price span{font-size:0.78rem; font-weight:400; color:#8a8072;}
+  .card-btn{display:block; text-align:center; background:var(--green-deep); color:#fff; padding:11px; border-radius:10px; font-weight:700; font-size:0.88rem; transition:transform .2s;}
+  .featured .card-btn{background:var(--red);}
+  .card-btn:hover{transform:scale(1.03);}
+  @media (max-width:920px){.product-grid{grid-template-columns:1fr 1fr;} .product-card.featured{transform:none;}}
+  @media (max-width:560px){.product-grid{grid-template-columns:1fr;}}
+
+  .why{background:var(--green-deep); color:var(--cream);}
+  .why .section-head h2{color:var(--cream);}
+  .why .eyebrow-mini{color:var(--red-light);}
+  .why-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  .why-card{background:rgba(255,248,240,0.06); border-radius:18px; padding:28px 24px;}
+  .why-card .num{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:2rem; color:var(--red-light); margin-bottom:12px;}
+  .why-card h3{font-size:1.1rem; margin-bottom:8px; color:var(--cream);}
+  .why-card p{font-size:0.9rem; opacity:0.8;}
+  @media (max-width:820px){.why-grid{grid-template-columns:1fr;}}
+
+  .about{background:var(--paper);}
+  .about-grid{display:grid; grid-template-columns:0.9fr 1.1fr; gap:52px; align-items:center;}
+  .about-visual{
+    aspect-ratio:1/1; border-radius:24px; position:relative; overflow:hidden;
+    background:radial-gradient(circle at 35% 35%, var(--red-light) 0%, var(--red) 45%, var(--green-light) 47%, var(--green-deep) 100%);
+    box-shadow:0 20px 50px rgba(27,67,50,0.2);
+  }
+  .about-visual::before{
+    content:""; position:absolute; inset:0; border-radius:24px;
+    background-image: radial-gradient(circle, var(--seed) 4px, transparent 4.5px);
+    background-size:44px 44px; background-position:24px 24px;
+    -webkit-mask-image: radial-gradient(circle at 35% 35%, black 0%, black 44%, transparent 45%);
+    mask-image: radial-gradient(circle at 35% 35%, black 0%, black 44%, transparent 45%);
+  }
+  .about-text .eyebrow-mini{color:var(--green-light);}
+  .about-text h2{color:var(--green-deep); margin-bottom:18px; font-size:clamp(1.7rem,4vw,2.3rem);}
+  .about-text p{color:#4a4238; margin-bottom:16px; font-size:1rem;}
+  .about-stats{display:flex; gap:28px; margin-top:26px; flex-wrap:wrap;}
+  .about-stats .num{font-family:'Baloo 2',sans-serif; font-weight:800; font-size:1.9rem; color:var(--red);}
+  .about-stats .label{font-size:0.8rem; color:#7a7062;}
+  @media (max-width:900px){.about-grid{grid-template-columns:1fr;}}
+
+  .testi{background:var(--cream);}
+  .testi-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px;}
+  .testi-card{background:var(--paper); border-radius:18px; padding:26px 22px; border:2px solid rgba(27,67,50,0.06);}
+  .stars{color:var(--red); font-size:1rem; margin-bottom:12px; letter-spacing:2px;}
+  .testi-card p{font-size:0.92rem; color:#4a4238; margin-bottom:16px; font-style:italic;}
+  .testi-who{display:flex; align-items:center; gap:10px;}
+  .testi-avatar{width:38px; height:38px; border-radius:50%; background:var(--green-light); display:flex; align-items:center; justify-content:center; color:#fff; font-weight:700; font-size:0.85rem;}
+  .testi-who b{display:block; font-size:0.88rem; color:var(--green-deep);}
+  .testi-who span{font-size:0.75rem; color:#8a8072;}
+  @media (max-width:820px){.testi-grid{grid-template-columns:1fr;}}
+
+  .order{background:var(--green-deep); position:relative; overflow:hidden;}
+  .order .section-head h2{color:var(--cream);}
+  .order .eyebrow-mini{color:var(--red-light);}
+  .order .section-head p{color:rgba(255,248,240,0.7);}
+  .order-wrap{display:grid; grid-template-columns:1fr 1.1fr; background:var(--paper); border-radius:26px; overflow:hidden; box-shadow:0 30px 70px rgba(0,0,0,0.3);}
+  .order-info{background:linear-gradient(160deg, var(--red), #a11f42); color:#fff; padding:44px 38px;}
+  .order-info h3{font-size:1.4rem; margin-bottom:16px;}
+  .order-info p{opacity:0.9; margin-bottom:22px; font-size:0.94rem;}
+  .order-info ul li{display:flex; gap:10px; margin-bottom:14px; font-size:0.92rem;}
+  .quick-contact{display:flex; flex-direction:column; gap:10px; margin-top:26px;}
+  .quick-contact a{display:flex; align-items:center; gap:10px; background:rgba(255,255,255,0.12); padding:11px 14px; border-radius:10px; font-size:0.89rem; font-weight:600; transition:background .2s;}
+  .quick-contact a:hover{background:rgba(255,255,255,0.22);}
+  .order-form{padding:44px 38px;}
+  form{display:flex; flex-direction:column; gap:14px;}
+  form label{font-size:0.83rem; font-weight:700; color:var(--green-deep); margin-bottom:5px; display:block;}
+  form input, form select, form textarea{width:100%; padding:13px 14px; border-radius:10px; border:1.5px solid rgba(27,67,50,0.18); font-family:inherit; font-size:0.95rem; background:var(--cream); color:var(--text-dark);}
+  form input:focus, form select:focus, form textarea:focus{outline:none; border-color:var(--red);}
+  form textarea{resize:vertical; min-height:64px;}
+  .form-msg{display:none; background:#eaf6ee; color:#1b4332; padding:13px 14px; border-radius:10px; font-size:0.9rem; font-weight:700;}
+  .form-msg.show{display:block;}
+  .guarantee{display:flex; align-items:center; gap:8px; font-size:0.82rem; color:var(--green-light); font-weight:700; margin-top:4px;}
+  @media (max-width:900px){.order-wrap{grid-template-columns:1fr;}}
+
+  footer{background:#0f2a1c; color:var(--cream); padding:56px 24px 100px;}
+  .footer-grid{max-width:1080px; margin:0 auto; display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:32px; padding-bottom:30px; border-bottom:1px solid rgba(255,248,240,0.12);}
+  footer h4{font-family:'Baloo 2',sans-serif; font-size:1.15rem; margin-bottom:14px; color:var(--red-light);}
+  footer p, footer a{font-size:0.87rem; opacity:0.75; line-height:1.85;}
+  .footer-logo{display:flex; align-items:center; gap:8px; font-family:'Baloo 2',sans-serif; font-weight:800; font-size:1.2rem; margin-bottom:12px;}
+  .footer-bottom{max-width:1080px; margin:20px auto 0; text-align:center; font-size:0.78rem; opacity:0.5;}
+  @media (max-width:760px){.footer-grid{grid-template-columns:1fr; text-align:center;}}
+
+  .sticky-cta{position:fixed; bottom:0; left:0; right:0; z-index:150; background:var(--paper); display:none; gap:10px; padding:12px 16px; box-shadow:0 -6px 20px rgba(0,0,0,0.12); padding-bottom:calc(12px + env(safe-area-inset-bottom));}
+  .sticky-cta a{flex:1; text-align:center; padding:13px; border-radius:12px; font-weight:800; font-size:0.9rem;}
+  .sticky-cta .call{background:var(--green-deep); color:#fff;}
+  .sticky-cta .order-now{background:var(--red); color:#fff;}
+  @media (max-width:820px){.sticky-cta{display:flex;}}
+
+  @media (prefers-reduced-motion: reduce){*{transition:none !important; animation:none !important; scroll-behavior:auto !important;}}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><span class="slice"></span> Tiệm này Thơm</div>
+  <button class="nav-toggle" id="navToggle" aria-label="Mở menu">☰</button>
+  <nav>
+    <ul id="navList">
+      <li><a href="#home">Trang chủ</a></li>
+      <li><a href="#products">Sản phẩm</a></li>
+      <li><a href="#about">Về chúng tôi</a></li>
+      <li><a href="#contact">Liên hệ</a></li>
+      <li><a href="#order" class="nav-cta">Đặt ngay</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <div class="melon-disc"></div>
+  <div class="hero-inner">
+    <span class="eyebrow">🍉 Mùa hè này · Ngọt mát mỗi ngày</span>
+    <h1>Dưa hấu <span>đỏ mọng</span>, giòn tan giải nhiệt</h1>
+    <p class="sub">Tuyển chọn ruột đỏ, ngọt chắc, cam kết độ ngọt — giao lạnh tận cửa trong ngày.</p>
+    <div class="hero-actions">
+      <a href="#order" class="btn">🛒 Đặt ngay hôm nay</a>
+      <a href="#products" class="btn btn-outline">Xem bảng giá</a>
+    </div>
+    <div class="trust-row">
+      <span>🍉 Cam kết ngọt, đổi trả nếu nhạt</span>
+      <span>🧊 Giao lạnh trong ngày</span>
+      <span>✂️ Có sẵn set cắt ăn liền</span>
+    </div>
+  </div>
+</section>
+
+<div class="ticker-wrap">
+  <div class="ticker">
+    <span>🔥 Ưu đãi mùa hè — freeship đơn từ 150k</span>
+    <span>🧊 Giao lạnh trong ngày tại TP.HCM</span>
+    <span>✅ Cam kết ngọt, đổi trả nếu nhạt</span>
+    <span>🍉 Ruột đỏ giòn, tuyển chọn kỹ</span>
+    <span>🔥 Ưu đãi mùa hè — freeship đơn từ 150k</span>
+    <span>🧊 Giao lạnh trong ngày tại TP.HCM</span>
+    <span>✅ Cam kết ngọt, đổi trả nếu nhạt</span>
+    <span>🍉 Ruột đỏ giòn, tuyển chọn kỹ</span>
+  </div>
+</div>
+
+<section class="products" id="products">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="eyebrow-mini">Bảng giá</span>
+      <h2>Chọn gói giải nhiệt mùa hè</h2>
+      <p>Giao lạnh trong ngày, thanh toán khi nhận hàng.</p>
+    </div>
+    <div class="product-grid">
+      <div class="product-card">
+        <div class="card-icon"><span class="slice"></span></div>
+        <h3>Gói Lẻ</h3>
+        <p>1 trái tươi (~2–3kg) — vừa đủ cho gia đình nhỏ ăn trong ngày.</p>
+        <div class="price">49k <span>/ trái</span></div>
+        <a href="#order" class="card-btn">Đặt ngay</a>
+      </div>
+      <div class="product-card featured">
+        <span class="best-tag">Bán chạy</span>
+        <div class="card-icon"><span class="slice"></span></div>
+        <h3>Gói Gia đình</h3>
+        <p>2 trái tuyển chọn (~5–6kg) — đủ ngọt mát cho cả nhà cả tuần.</p>
+        <div class="price">89k <span>/ 2 trái</span></div>
+        <a href="#order" class="card-btn">Đặt ngay</a>
+      </div>
+      <div class="product-card">
+        <div class="card-icon"><span class="slice"></span></div>
+        <h3>Set cắt sẵn</h3>
+        <p>Hộp 500g cắt sẵn, ăn liền không cần gọt — tiện cho văn phòng.</p>
+        <div class="price">35k <span>/ hộp</span></div>
+        <a href="#order" class="card-btn">Đặt ngay</a>
+      </div>
+      <div class="product-card">
+        <div class="card-icon"><span class="slice"></span></div>
+        <h3>Combo Giải nhiệt</h3>
+        <p>Hộp cắt sẵn + nước ép dưa hấu 300ml — mát lạnh trọn vẹn.</p>
+        <div class="price">59k <span>/ combo</span></div>
+        <a href="#order" class="card-btn">Đặt ngay</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="eyebrow-mini">Vì sao chọn chúng tôi</span>
+      <h2>Ngọt là cam kết, không phải may rủi</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="num">01</div>
+        <h3>Tuyển chọn kỹ</h3>
+        <p>Mỗi trái được kiểm tra bằng gõ tay & xem cuống trước khi đóng gói.</p>
+      </div>
+      <div class="why-card">
+        <div class="num">02</div>
+        <h3>Cam kết ngọt</h3>
+        <p>Đổi trả miễn phí nếu dưa nhạt hoặc không đạt độ giòn ngọt tiêu chuẩn.</p>
+      </div>
+      <div class="why-card">
+        <div class="num">03</div>
+        <h3>Giao lạnh trong ngày</h3>
+        <p>Đóng thùng giữ lạnh, giao trong ngày để dưa luôn mát và tươi nhất.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-visual"></div>
+      <div class="about-text">
+        <span class="eyebrow-mini">Về chúng tôi</span>
+        <h2>Chọn dưa bằng tâm, không bằng may rủi</h2>
+        <p>Tiệm này Thơm chọn dưa hấu từ những vùng trồng uy tín, ưu tiên giống ruột đỏ giòn ngọt tự nhiên. Mỗi trái đều được kiểm tra kỹ trước khi giao — để mùa hè của bạn lúc nào cũng mát lành.</p>
+        <p>Không chỉ bán trái nguyên, chúng tôi còn có set cắt sẵn và combo giải nhiệt để bạn thưởng thức dưa hấu theo cách tiện lợi nhất.</p>
+        <div class="about-stats">
+          <div><div class="num">100%</div><div class="label">Ruột đỏ giòn ngọt</div></div>
+          <div><div class="num">0đ</div><div class="label">Phí đổi trả nếu nhạt</div></div>
+          <div><div class="num">24h</div><div class="label">Giao trong ngày*</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testi">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="eyebrow-mini">Khách nói gì</span>
+      <h2>Mát lòng mát dạ</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Dưa ngọt thiệt, ruột đỏ đẹp, đặt sáng chiều đã có, mát lạnh luôn."</p>
+        <div class="testi-who"><div class="testi-avatar">L</div><div><b>Chị Linh</b><span>Q. Bình Thạnh</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Đặt combo cắt sẵn cho văn phòng, ai cũng khen tiện mà ngọt không thua dưa nguyên trái."</p>
+        <div class="testi-who"><div class="testi-avatar">Đ</div><div><b>Anh Đức</b><span>TP. Thủ Đức</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="stars">★★★★★</div>
+        <p>"Mua cho tiệc BBQ cuối tuần, dưa giòn ngọt, giao đúng giờ hẹn luôn."</p>
+        <div class="testi-who"><div class="testi-avatar">M</div><div><b>Bạn Mai</b><span>Thuận An</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="section-inner">
+    <div class="section-head center">
+      <span class="eyebrow-mini">Đặt hàng</span>
+      <h2>Nóng rồi, làm ly dưa hấu mát lạnh thôi</h2>
+      <p>Điền thông tin — chúng tôi gọi xác nhận trong 30 phút.</p>
+    </div>
+    <div class="order-wrap">
+      <div class="order-info">
+        <h3>Cách đặt hàng</h3>
+        <ul>
+          <li>📝 <span><b>Bước 1:</b> Điền form bên cạnh với thông tin của bạn.</span></li>
+          <li>📞 <span><b>Bước 2:</b> Chúng tôi gọi/nhắn Zalo xác nhận trong 30 phút.</span></li>
+          <li>🧊 <span><b>Bước 3:</b> Giao hàng lạnh tận nơi, thanh toán khi nhận.</span></li>
+        </ul>
+        <p>Hoặc liên hệ trực tiếp để đặt nhanh hơn:</p>
+        <div class="quick-contact">
+          <a href="tel:0879418678">📞 0879 418 678</a>
+          <a href="https://zalo.me/0879418678" target="_blank" rel="noopener">💬 Nhắn Zalo</a>
+          <a href="mailto:ythai420@gmail.com">✉️ ythai420@gmail.com</a>
+        </div>
+      </div>
+      <div class="order-form">
+        <form id="orderForm">
+          <div>
+            <label for="name">Họ tên</label>
+            <input type="text" id="name" required placeholder="Nguyễn Văn A">
+          </div>
+          <div>
+            <label for="phone">Số điện thoại</label>
+            <input type="tel" id="phone" required placeholder="09xx xxx xxx">
+          </div>
+          <div>
+            <label for="package">Chọn gói</label>
+            <select id="package">
+              <option>Gói Lẻ — 49.000đ</option>
+              <option selected>Gói Gia đình — 89.000đ</option>
+              <option>Set cắt sẵn — 35.000đ</option>
+              <option>Combo Giải nhiệt — 59.000đ</option>
+            </select>
+          </div>
+          <div>
+            <label for="address">Địa chỉ giao hàng</label>
+            <input type="text" id="address" required placeholder="Số nhà, đường, phường/xã...">
+          </div>
+          <div>
+            <label for="note">Ghi chú</label>
+            <textarea id="note" placeholder="Ví dụ: giao buổi tối, gọi trước khi đến..."></textarea>
+          </div>
+          <button type="submit" class="btn" style="width:100%; justify-content:center;">🛒 Gửi đơn đặt hàng</button>
+          <span class="guarantee">🔁 Đổi trả miễn phí nếu dưa nhạt</span>
+          <div class="form-msg" id="formMsg">✅ Đã ghi nhận đơn! Tiệm này Thơm sẽ liên hệ xác nhận trong ít phút.</div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo"><span class="slice"></span> Tiệm này Thơm</div>
+      <p>Dưa hấu ruột đỏ giòn ngọt, giao lạnh tận nơi — giải nhiệt mùa hè này cùng Tiệm này Thơm.</p>
+    </div>
+    <div>
+      <h4>Liên hệ</h4>
+      <p><a href="tel:0879418678">SĐT/Zalo: 0879 418 678</a></p>
+      <p><a href="mailto:ythai420@gmail.com">ythai420@gmail.com</a></p>
+    </div>
+    <div>
+      <h4>Địa chỉ</h4>
+      <p>Chung cư Legacy Thuận Giao,<br>Thuận Giao 15, TP.HCM</p>
+    </div>
+  </div>
+  <div class="footer-bottom">© 2026 Tiệm này Thơm. Made with tình yêu mùa hè.</div>
+</footer>
+
+<div class="sticky-cta">
+  <a href="tel:0879418678" class="call">📞 Gọi ngay</a>
+  <a href="#order" class="order-now">🛒 Đặt ngay</a>
+</div>
+
+<script>
+  const navToggle = document.getElementById('navToggle');
+  const navList = document.getElementById('navList');
+  navToggle.addEventListener('click', () => navList.classList.toggle('open'));
+  navList.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navList.classList.remove('open')));
+
+  document.getElementById('orderForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    document.getElementById('formMsg').classList.add('show');
+    this.reset();
+  });
+</script>
+
+</body>
+</html>
