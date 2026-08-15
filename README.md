@@ -1,8 +1,13 @@
-# Tiệm này Thơm — Team 3
+# Tiệm Này Thơm — Nhóm Team 3
 
-Website HTML sầu riêng hạt Đắk Lắk.
+Website HTML đã được chuẩn bị để upload lên GitHub Pages.
 
-## Upload GitHub
-1. Tạo repository mới trên GitHub.
-2. Upload file `index.html` vào thư mục gốc của repository.
-3. Nếu dùng GitHub Pages: Settings → Pages → Deploy from a branch → chọn `main` và `/ (root)`.
+## Cấu trúc
+- `index.html` — file trang web chính.
+
+## GitHub Pages
+1. Upload toàn bộ thư mục này lên repository.
+2. Vào **Settings → Pages**.
+3. Chọn **Deploy from a branch**.
+4. Chọn branch chứa file `index.html` (thường là `main`) và thư mục `/root`.
+5. Lưu lại để GitHub Pages xuất bản website.
